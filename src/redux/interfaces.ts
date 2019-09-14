@@ -11,9 +11,11 @@ export interface User {
 }
 
 export interface Message {
-  senderId: User['id'];
+  // id: string;
+  sender: User;
   messageText: string;
   mediaUrl?: string;
+  timestamp: string;
   // conversationId: Conversation['id'];
 }
 

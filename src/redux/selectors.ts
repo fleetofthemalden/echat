@@ -2,16 +2,14 @@ import { Conversation, Message } from './interfaces';
 import { AppState } from './rootStore';
 
 export function getConversations(state: AppState): Conversation[] {
-  return [];
+  // TODO: sort by otherUser name
+  return Object.values(state.messagesState.conversations);
 }
 
 export function getMessages(state: AppState, conversationId: Conversation['id']): Message[] {
-  return [];
+  return state.messagesState.conversations[conversationId].messages;
 }
 
 export function getLastMessage(state: AppState, conversationId: Conversation['id']): Message {
-  return {
-    senderId: 'placeholder',
-    messageText: 'placeholder text'
-  };
+  return getMessages(state, conversationId)[0];
 }
